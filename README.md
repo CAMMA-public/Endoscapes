@@ -1,93 +1,164 @@
-# Endoscapes
+# The Endoscapes Dataset for Surgical Scene Segmentation, Object Detection, and Critical View of Safety Assessment
 
+## Overview
+We are excited to release Endoscapes2023, a comprehensive laparoscopic video dataset for surgical anatomy and tool segmentation, object detection, and Critical View of Safety (CVS) assessment.
+This repository provides an overview of the dataset contents, including an exploration of the types and format of the annotations as well as download links.
 
+## Contents
+**Endoscapes2023** focuses on a region of interest within laparoscopic cholecystectomy videos where CVS is relevant and well-defined: during the dissection phase and before the first clip/cut of the cystic artery or cystic duct. We organize its contents into three different sub-datasets:
+1) _Endoscapes-CVS201_: 11090 frames from 201 videos annotated with CVS by 3 experts. These frames are evenly spaced at 5 second intervals, and the intermediate frames can be used to train for instance semi-supervised/temporal methods. There are a total of 58813 frames (1 fps) in the aforementioned region of interest.
 
-## Getting started
+2) _Endoscapes-BBox201_: 1933 frames from 201 videos annotated with bounding boxes for 5 anatomical structures/regions (Gallbladder, Cystic Duct, Cystic Artery, Cystic Plate, Hepatocystic Triangle Dissection) and a tool class (6 classes total). The 1933 frames correspond to 1 frame every 30 seconds from the aformentioned region of interest of each video. As for Endoscapes-CVS201, the unlabeled frames can be used for semi-supervised/temporal methods. 
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+3) _Endoscapes-Seg50_: 493 frames from 50 videos annotated with instance and semantic segmentation masks for the 6 aforementioned classes. Endoscapes-Seg50 is a strict subset of Endoscapes-BBox201; we select ~25% of the 201 videos (50), sample 1 frame every 30s from the region of interest, and add segmentation annotations.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## File Structure
+We describe the file structure below. All annotations are in COCO-format, with CVS labels encoded as image-level tags. Of note, the CVS labels represent the average of the 3 annotators for each criterion. Decimal values indicate cases where there was disagreement among annotators.
 
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
+```shell
+$DATA_HOME
+└── train
+    ├── 1_29375.jpg # SYNTAX: ${VIDEO_ID}_{FRAME_NUM}.jpg
+    ├── ...
+    ├── 120_85800.jpg
+    ├── annotation_coco.json # Annotation File for Endoscapes-BBox201 (Object Detection, COCO Format). Also contains instance segmentation where available.
+    ├── annotation_coco_vid.json # Annotation File for Endoscapes-CVS201 Temporal Models. Contains Bounding Box/Segmentation where available.
+    ├── annotation_ds_coco.json # Annotation File for Endoscapes-CVS201 Single-Frame Models. Contains Bounding Box/Segmentation where available.
+└── val
+    ├── 121_14850.jpg
+    ├── ...
+    ├── 161_34325.jpg
+    ├── annotation_coco.json
+    ├── annotation_coco_vid.json
+    ├── annotation_ds_coco.json
+└── test
+    ├── 162_5850.jpg
+    ├── ...
+    ├── 201_46125.jpg
+    ├── annotation_coco.json
+    ├── annotation_coco_vid.json
+    ├── annotation_ds_coco.json
+└── train_seg
+    ├── 4_21725.jpg
+    ├── ...
+    ├── 119_58000.jpg
+    ├── annotation_coco.json # Annotation File for Endoscapes-Seg50 (bounding boxes + instance segmentation, COCO format)
+└── val_seg
+    ├── 126_10825.jpg
+    ├── ...
+    ├── 159_60875.jpg
+    ├── annotation_coco.json
+└── test_seg
+    ├── 165_22925.jpg
+    ├── ...
+    ├── 189_34875.jpg
+    ├── annotation_coco.json
+└── 12_5 # Official 12.5% Splits of Endoscapes-CVS201 Train Set (3 folds)
+    ├── train_0
+        ├── 16_9500.jpg
+        ├── ...
+        ├── 118_121800.jpg
+        ├── annotation_coco.json
+        ├── annotation_coco_vid.json
+        ├── annotation_ds_coco.json
+    ├── train_1
+        ├── 2_29075.jpg
+        ├── ...
+        ├── 107_57875.jpg
+        ├── annotation_coco.json
+        ├── annotation_coco_vid.json
+        ├── annotation_ds_coco.json
+    ├── train_2
+        ├── 8_14050.jpg
+        ├── ...
+        ├── 119_90825.jpg
+        ├── annotation_coco.json
+        ├── annotation_coco_vid.json
+        ├── annotation_ds_coco.json
+└── 25 # Official 25% Splits of Endoscapes-CVS201 Train Set (3 folds)
+    ├── train_0
+        ├── 1_29375.jpg
+        ├── ...
+        ├── 116_36150.jpg
+        ├── annotation_coco.json
+        ├── annotation_coco_vid.json
+        ├── annotation_ds_coco.json
+    ├── train_1
+        ├── 2_29075.jpg
+        ├── ...
+        ├── 120_85800.jpg
+        ├── annotation_coco.json
+        ├── annotation_coco_vid.json
+        ├── annotation_ds_coco.json
+    ├── train_2 # Same videos as train_seg above
+        ├── 4_21725.jpg
+        ├── ...
+        ├── 119_58000.jpg
+        ├── annotation_coco.json
+        ├── annotation_coco_vid.json
+        ├── annotation_ds_coco.json
+└── all_metadata.csv # all metadata for the entire Endoscapes2023 (CVS annotations from all annotators, etc.)
+└── insseg
+    ├── 5_5900.npy # stack of instance masks, where each channel corresponds to an object instance
+    ├── 5_5900.csv # label of each slice of numpy masks
+    ├── ...
+└── semseg
+    ├── 5_5900.png # semantic segmentation mask, 480x854x3 image with each element representing the class_id of each pixel; the 3 channels are identical
+    ├── ...
+└── train_vids.txt # 120 training videos for Endoscapes-CVS201 and Endoscapes-BBox201
+└── val_vids.txt # 41 validation videos for Endoscapes-CVS201 and Endoscapes-BBox201
+└── test_vids.txt # 40 testing videos for Endoscapes-CVS201 and Endoscapes-BBox201
+└── train_seg_vids.txt # 30 training videos for Endoscapes-Seg50
+└── val_seg_vids.txt # 10 validation videos for Endoscapes-Seg50
+└── test_seg_vids.txt # 10 testing videos for Endoscapes-Seg50
+└── seg_label_map.txt # map from class name to id; note that background is ignored for object detection/instance segmentation; for these tasks, id 0 becomes cystic plate, ...
 ```
-cd existing_repo
-git remote add origin https://forge.icube.unistra.fr/aditya.murali/endoscapes.git
-git branch -M main
-git push -uf origin main
-```
 
-## Integrate with your tools
+## Baselines/Benchmark
 
-- [ ] [Set up project integrations](https://forge.icube.unistra.fr/aditya.murali/endoscapes/-/settings/integrations)
+We have published a technical report [1] alongside this repository wherein we present a thorough benchmark for three tasks: object detection (using Endoscapes-BBox201), instance segmentation (using Endoscapes-Seg50), and CVS prediction (using Endoscapes-CVS201). This benchmark also includes comparisons to recently published works.
 
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Please refer to [this repository](https://github.com/CAMMA-public/SurgLatentGraph/) to run all models presented in [1].
 
 ## License
-For open source projects, say how it is licensed.
+The data released here are available for non-commercial scientific research purposes as defined in the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). By downloading and using this code you agree to the terms in the [LICENSE](LICENSE). Third-party codes are subject to their respective licenses.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Acknowledgement
+This work was supported by French state funds managed by the ANR within the National AI Chair program under Grant ANR-20-CHIA-
+0029-01 (Chair AI4ORSafety) and within the Investments for the future program under Grants ANR-10-IDEX-0002-02 (IdEx Unistra) and ANR-
+10-IAHU-02 (IHU Strasbourg). This work was granted access to the HPC resources of IDRIS under the allocation 2021-AD011011640R1
+made by GENCI.
+
+## Contact
+This dataset is maintained by the research group [CAMMA](http://camma.u-strasbg.fr). If you have any questions regarding the dataset, please create a GitHub issue and we will get back to you as soon as we can.
+
+## References
+
+Please cite the following works when using this dataset for your research.
+
+(arXiv)
+(NSD)
+
+Additionally, if you use Endoscapes-CVS201 or Endoscapes-BBox201, please cite the following:
+```bibtex
+@article{murali2023latent,
+  author={Murali, Aditya and Alapatt, Deepak and Mascagni, Pietro and Vardazaryan, Armine and Garcia, Alain and Okamoto, Nariaki and Mutter, Didier and Padoy, Nicolas},
+  journal={IEEE Transactions on Medical Imaging},
+  title={Latent Graph Representations for Critical View of Safety Assessment}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TMI.2023.3333034}
+}
+```
+
+Or if you use Endoscapes-Seg50, please cite:
+```bibtex
+@article{alapatt2021temporally,
+  title={Temporally Constrained Neural Networks (TCNN): A framework for semi-supervised video semantic segmentation},
+  author={Alapatt, Deepak and Mascagni, Pietro and Vardazaryan, Armine and Garcia, Alain and Okamoto, Nariaki and Mutter, Didier and Marescaux, Jacques and Costamagna, Guido and Dallemagne, Bernard and Padoy, Nicolas},
+  journal={arXiv preprint arXiv:2112.13815},
+  year={2021}
+}
+```
