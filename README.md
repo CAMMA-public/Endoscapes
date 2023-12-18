@@ -1,6 +1,16 @@
+<div align="center">
+<a href="http://camma.u-strasbg.fr/">
+<img src="logo.png" width="30%">
+</a>
+</div>
+
 # The Endoscapes Dataset for Surgical Scene Segmentation, Object Detection, and Critical View of Safety Assessment
 
 ## Overview
+<div align="center">
+<img src="endoscapes_examples.png" width="30%">
+</div>
+
 We are excited to release Endoscapes2023, a comprehensive laparoscopic video dataset for surgical anatomy and tool segmentation, object detection, and Critical View of Safety (CVS) assessment.
 This repository provides an overview of the dataset contents, including an exploration of the types and format of the annotations as well as download links.
 
