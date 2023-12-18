@@ -1,6 +1,6 @@
 <div align="center">
 <a href="http://camma.u-strasbg.fr/">
-<img src="logo.png" width="30%">
+<img src="logo.png" width="50%">
 </a>
 </div>
 
@@ -8,10 +8,10 @@
 
 ## Overview
 <div align="center">
-<img src="endoscapes_examples.png" width="30%">
+<img src="endoscapes_examples.png" width="100%">
 </div>
 
-We are excited to release Endoscapes2023, a comprehensive laparoscopic video dataset for surgical anatomy and tool segmentation, object detection, and Critical View of Safety (CVS) assessment.
+We are excited to release Endoscapes2023 \[[Download](https://seafile.unistra.fr/f/5f1503749bb644bdbd9f/?dl=1)\], a comprehensive laparoscopic video dataset for surgical anatomy and tool segmentation, object detection, and Critical View of Safety (CVS) assessment.
 This repository provides an overview of the dataset contents, including an exploration of the types and format of the annotations as well as download links.
 
 ## Contents
@@ -149,7 +149,7 @@ Please cite the following works when using this dataset for your research.
 (arXiv)
 (NSD)
 
-Additionally, if you use Endoscapes-CVS201 or Endoscapes-BBox201, please cite the following:
+If you use Endoscapes-CVS201 or Endoscapes-BBox201, please additionally cite the following:
 ```bibtex
 @article{murali2023latent,
   author={Murali, Aditya and Alapatt, Deepak and Mascagni, Pietro and Vardazaryan, Armine and Garcia, Alain and Okamoto, Nariaki and Mutter, Didier and Padoy, Nicolas},
@@ -163,7 +163,7 @@ Additionally, if you use Endoscapes-CVS201 or Endoscapes-BBox201, please cite th
 }
 ```
 
-Or if you use Endoscapes-Seg50, please cite:
+And if you use Endoscapes-Seg50, please additionally cite:
 ```bibtex
 @article{alapatt2021temporally,
   title={Temporally Constrained Neural Networks (TCNN): A framework for semi-supervised video semantic segmentation},
