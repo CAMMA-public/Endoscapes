@@ -151,6 +151,8 @@ Please cite the following works when using this dataset for your research.
 (NSD)
 
 If you use Endoscapes-CVS201 or Endoscapes-BBox201, please additionally cite the following:
+
+[2] Murali, A., Alapatt, D., Mascagni, P., Vardazaryan, A., Garcia, A., Okamoto, N., ... & Padoy, N. (2023). Latent graph representations for critical view of safety assessment. IEEE Transactions on Medical Imaging.
 ```bibtex
 @article{murali2023latent,
   author={Murali, Aditya and Alapatt, Deepak and Mascagni, Pietro and Vardazaryan, Armine and Garcia, Alain and Okamoto, Nariaki and Mutter, Didier and Padoy, Nicolas},
@@ -164,6 +166,7 @@ If you use Endoscapes-CVS201 or Endoscapes-BBox201, please additionally cite the
 }
 ```
 
+[3] Alapatt, D., Mascagni, P., Vardazaryan, A., Garcia, A., Okamoto, N., Mutter, D., ... & Padoy, N. (2021). Temporally Constrained Neural Networks (TCNN): A framework for semi-supervised video semantic segmentation. arXiv preprint arXiv:2112.13815.
 And if you use Endoscapes-Seg50, please additionally cite:
 ```bibtex
 @article{alapatt2021temporally,
