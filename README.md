@@ -21,7 +21,7 @@ This repository provides an overview of the dataset contents, including an explo
 
 2) _Endoscapes-BBox201_: 1933 frames from 201 videos annotated with bounding boxes for 5 anatomical structures/regions (Gallbladder, Cystic Duct, Cystic Artery, Cystic Plate, Hepatocystic Triangle Dissection) and a tool class (6 classes total). The 1933 frames correspond to 1 frame every 30 seconds from the aformentioned region of interest of each video. As for Endoscapes-CVS201, the unlabeled frames can be used for semi-supervised/temporal methods. 
 
-3) _Endoscapes-Seg50_: 493 frames from 50 videos annotated with instance and semantic segmentation masks for the 6 aforementioned classes. Endoscapes-Seg50 is a strict subset of Endoscapes-BBox201; we select ~25% of the 201 videos (50), sample 1 frame every 30s from the region of interest, and add segmentation annotations. **Please note that this is a partial release of the dataset used in [2,3,5]; these works use _Endoscapes-Seg201_, which contains segmentation masks for all 1933 frames that are a part of _Endoscapes-BBox201_.**
+3) _Endoscapes-Seg50_: 493 frames from 50 videos annotated with instance and semantic segmentation masks for the 6 aforementioned classes. Endoscapes-Seg50 is a strict subset of Endoscapes-BBox201; we select ~25% of the 201 videos (50 out of 201), sample 1 frame every 30s from the region of interest, and add segmentation annotations. **Please note that this is a partial release of the dataset used in [2,3,5]; these works use _Endoscapes-Seg201_ (private), which contains segmentation masks for all 1933 frames that are a part of _Endoscapes-BBox201_.**
 
 ## File Structure
 We describe the file structure below. All annotations are in COCO-format, with CVS labels encoded as image-level tags. Of note, the CVS labels represent the average of the 3 annotators for each criterion. Decimal values indicate cases where there was disagreement among annotators.
@@ -145,7 +145,7 @@ This dataset is maintained by the research group [CAMMA](http://camma.u-strasbg.
 
 ## References
 
-Please cite the following works when using this dataset for your research.
+Please cite the accompanying technical report when using this dataset for your research.
 
 (arXiv)
 
@@ -178,7 +178,8 @@ And if you use Endoscapes-Seg50, please additionally cite:
 }
 ```
 
-For a detailed description of the annotation protocols used to generate this dataset, please see: 
+For a detailed description of the annotation protocols used to generate this dataset, please see:
+
 [\[4\]](https://arxiv.org/abs/2106.10916) Mascagni, P., Alapatt, D., Garcia, A., Okamoto, N., Vardazaryan, A., Costamagna, G., ... & Padoy, N. (2021). Surgical data science for safe cholecystectomy: a protocol for segmentation of hepatocystic anatomy and assessment of the critical view of safety. arXiv preprint arXiv:2106.10916.
 ```bibtex
 @article{mascagni2021surgical,
@@ -190,6 +191,7 @@ For a detailed description of the annotation protocols used to generate this dat
 ```
 
 Finally, below is a list of additional works that use this dataset:
+
 [\[5\]](https://arxiv.org/abs/2312.06829) Murali, A., Alapatt, D., Mascagni, P., Vardazaryan, A., Garcia, A., Okamoto, N., ... & Padoy, N. (2023, October). Encoding Surgical Videos as Latent Spatiotemporal Graphs for Object and Anatomy-Driven Reasoning. In International Conference on Medical Image Computing and Computer-Assisted Intervention (pp. 647-657). Cham: Springer Nature Switzerland.
 ```bibtex
 @article{murali2023encoding,
