@@ -151,7 +151,7 @@ Please cite the following works when using this dataset for your research.
 
 If you use Endoscapes-CVS201 or Endoscapes-BBox201, please additionally cite the following works which led to the creation of these datasets:
 
-[2](https://arxiv.org/abs/2212.04155) Murali, A., Alapatt, D., Mascagni, P., Vardazaryan, A., Garcia, A., Okamoto, N., ... & Padoy, N. (2023). Latent graph representations for critical view of safety assessment. IEEE Transactions on Medical Imaging.
+[\[2\]](https://arxiv.org/abs/2212.04155) Murali, A., Alapatt, D., Mascagni, P., Vardazaryan, A., Garcia, A., Okamoto, N., ... & Padoy, N. (2023). Latent graph representations for critical view of safety assessment. IEEE Transactions on Medical Imaging.
 ```bibtex
 @article{murali2023latent,
   author={Murali, Aditya and Alapatt, Deepak and Mascagni, Pietro and Vardazaryan, Armine and Garcia, Alain and Okamoto, Nariaki and Mutter, Didier and Padoy, Nicolas},
@@ -167,7 +167,7 @@ If you use Endoscapes-CVS201 or Endoscapes-BBox201, please additionally cite the
 
 Similarly, if you Endoscapes-Seg50, please additionally cite the following work which led to the generation of the segmentation annotations:
 
-[3](https://arxiv.org/abs/2112.13815) Alapatt, D., Mascagni, P., Vardazaryan, A., Garcia, A., Okamoto, N., Mutter, D., ... & Padoy, N. (2021). Temporally Constrained Neural Networks (TCNN): A framework for semi-supervised video semantic segmentation. arXiv preprint arXiv:2112.13815.
+[\[3\]](https://arxiv.org/abs/2112.13815) Alapatt, D., Mascagni, P., Vardazaryan, A., Garcia, A., Okamoto, N., Mutter, D., ... & Padoy, N. (2021). Temporally Constrained Neural Networks (TCNN): A framework for semi-supervised video semantic segmentation. arXiv preprint arXiv:2112.13815.
 And if you use Endoscapes-Seg50, please additionally cite:
 ```bibtex
 @article{alapatt2021temporally,
@@ -179,7 +179,7 @@ And if you use Endoscapes-Seg50, please additionally cite:
 ```
 
 For a detailed description of the annotation protocols used to generate this dataset, please see: 
-[4](https://arxiv.org/abs/2106.10916) Mascagni, P., Alapatt, D., Garcia, A., Okamoto, N., Vardazaryan, A., Costamagna, G., ... & Padoy, N. (2021). Surgical data science for safe cholecystectomy: a protocol for segmentation of hepatocystic anatomy and assessment of the critical view of safety. arXiv preprint arXiv:2106.10916.
+[\[4\]](https://arxiv.org/abs/2106.10916) Mascagni, P., Alapatt, D., Garcia, A., Okamoto, N., Vardazaryan, A., Costamagna, G., ... & Padoy, N. (2021). Surgical data science for safe cholecystectomy: a protocol for segmentation of hepatocystic anatomy and assessment of the critical view of safety. arXiv preprint arXiv:2106.10916.
 ```bibtex
 @article{mascagni2021surgical,
   title={Surgical data science for safe cholecystectomy: a protocol for segmentation of hepatocystic anatomy and assessment of the critical view of safety},
@@ -190,7 +190,7 @@ For a detailed description of the annotation protocols used to generate this dat
 ```
 
 Finally, below is a list of additional works that use this dataset:
-[5](https://arxiv.org/abs/2312.06829) Murali, A., Alapatt, D., Mascagni, P., Vardazaryan, A., Garcia, A., Okamoto, N., ... & Padoy, N. (2023, October). Encoding Surgical Videos as Latent Spatiotemporal Graphs for Object and Anatomy-Driven Reasoning. In International Conference on Medical Image Computing and Computer-Assisted Intervention (pp. 647-657). Cham: Springer Nature Switzerland.
+[\[5\]](https://arxiv.org/abs/2312.06829) Murali, A., Alapatt, D., Mascagni, P., Vardazaryan, A., Garcia, A., Okamoto, N., ... & Padoy, N. (2023, October). Encoding Surgical Videos as Latent Spatiotemporal Graphs for Object and Anatomy-Driven Reasoning. In International Conference on Medical Image Computing and Computer-Assisted Intervention (pp. 647-657). Cham: Springer Nature Switzerland.
 ```bibtex
 @article{murali2023encoding,
   title={Encoding Surgical Videos as Latent Spatiotemporal Graphs for Object and Anatomy-Driven Reasoning},
@@ -200,7 +200,7 @@ Finally, below is a list of additional works that use this dataset:
 }
 ```
 
-[6](https://arxiv.org/abs/2312.05968) Alapatt, D., Murali, A., Srivastav, V., Mascagni, P., Consortium, A., & Padoy, N. (2023). Jumpstarting Surgical Computer Vision. arXiv preprint arXiv:2312.05968.
+[\[6\]](https://arxiv.org/abs/2312.05968) Alapatt, D., Murali, A., Srivastav, V., Mascagni, P., Consortium, A., & Padoy, N. (2023). Jumpstarting Surgical Computer Vision. arXiv preprint arXiv:2312.05968.
 ```bibtex
 @article{alapatt2023jumpstarting,
   title={Jumpstarting Surgical Computer Vision},
@@ -210,7 +210,7 @@ Finally, below is a list of additional works that use this dataset:
 }
 ```
 
-[7](https://arxiv.org/pdf/2207.00449) Ramesh, S., Srivastav, V., Alapatt, D., Yu, T., Murali, A., Sestini, L., ... & Padoy, N. (2023). Dissecting self-supervised learning methods for surgical computer vision. Medical Image Analysis, 88, 102844.
+[\[7\]](https://arxiv.org/pdf/2207.00449) Ramesh, S., Srivastav, V., Alapatt, D., Yu, T., Murali, A., Sestini, L., ... & Padoy, N. (2023). Dissecting self-supervised learning methods for surgical computer vision. Medical Image Analysis, 88, 102844.
 ```bibtex
 @article{ramesh2023dissecting,
   title={Dissecting self-supervised learning methods for surgical computer vision},
