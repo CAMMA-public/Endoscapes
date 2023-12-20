@@ -10,10 +10,13 @@
 <img src="endoscapes_examples.png" width="100%">
 </div>
 
+[![Endoscapes Dataset and COCO Style Annotations](https://img.shields.io/badge/Endoscapes-Download-green)](https://s3.unistra.fr/camma_public/datasets/endoscapes/endoscapes.zip)
+[![arXiv](https://img.shields.io/badge/arXiv-2312.12429-red)](https://arxiv.org/abs/2312.12429)
+
 ## Overview
 
-We are excited to release Endoscapes2023 \[[Download](https://seafile.unistra.fr/f/5f1503749bb644bdbd9f/?dl=1)\], a comprehensive laparoscopic video dataset for surgical anatomy and tool segmentation, object detection, and Critical View of Safety (CVS) assessment.
-This repository provides an overview of the dataset contents, including an exploration of the types and format of the annotations as well as download links. Comprehensive information, including dataset splits and performance benchmarks, is provided in this accompanying [technical report](arXiv).
+We are excited to release Endoscapes2023 \[[Download](https://s3.unistra.fr/camma_public/datasets/endoscapes/endoscapes.zip)\], a comprehensive laparoscopic video dataset for surgical anatomy and tool segmentation, object detection, and Critical View of Safety (CVS) assessment.
+This repository provides an overview of the dataset contents, including an exploration of the types and format of the annotations as well as download links. Comprehensive information, including dataset splits and performance benchmarks, is provided in this accompanying [technical report](https://arxiv.org/abs/2312.12429).
 
 ## Contents
 **Endoscapes2023** focuses on a region of interest within laparoscopic cholecystectomy videos where CVS is relevant and well-defined: during the dissection phase and before the first clip/cut of the cystic artery or cystic duct [4]. We organize its contents into three different sub-datasets:
@@ -147,7 +150,15 @@ This dataset is maintained by the research group [CAMMA](http://camma.u-strasbg.
 
 Please cite the accompanying technical report when using this dataset for your research.
 
-(arXiv)
+[\[1\]](https://arxiv.org/abs/2312.12429) Murali, A., Alapatt, D., Mascagni, P., Vardazaryan, A., Garcia, A., Okamoto, N., ... & Padoy, N. (2023). The Endoscapes Dataset for Surgical Scene Segmentation, Object Detection, and Critical View of Safety Assessment: Official Splits and Benchmark. arXiv preprint arXiv:2312.12429.
+```bibtex
+@article{murali2023endoscapes,
+      title={The Endoscapes Dataset for Surgical Scene Segmentation, Object Detection, and Critical View of Safety Assessment: Official Splits and Benchmark}, 
+      author={Aditya Murali and Deepak Alapatt and Pietro Mascagni and Armine Vardazaryan and Alain Garcia and Nariaki Okamoto and Guido Costamagna and Didier Mutter and Jacques Marescaux and Bernard Dallemagne and Nicolas Padoy},
+      journal={arXiv preprint arXiv:2312.12429},
+      year={2023},
+}
+```
 
 If you use Endoscapes-CVS201 or Endoscapes-BBox201, please additionally cite the following works which led to the creation of these datasets:
 
