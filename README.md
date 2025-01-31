@@ -30,7 +30,7 @@ This repository provides an overview of the dataset contents, including an explo
 We describe the file structure below. All annotations are in COCO-format, with CVS labels encoded as image-level tags. Of note, the CVS labels represent the average of the 3 annotators for each criterion. Decimal values indicate cases where there was disagreement among annotators.
 
 ```shell
-$DATA_HOME
+$endoscapes
 └── train
     ├── 1_29375.jpg # SYNTAX: ${VIDEO_ID}_{FRAME_NUM}.jpg
     ├── ...
